@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Молния Мобайл: Контакты</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/MM-style.css">
+</head>
+
+<body class="bg-warning">
+
+
+<!--Навигация-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="/images/MM-long-transpar.png" alt="Логотип минимал">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto mb-">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tariffs">Тарифы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/services">Услуги</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/news">Новости и блог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contacts">Контакты и
+                        поддержка
+                    </a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Личный кабинет
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/main">
+            <img src="/images/MM-long-transpar.png" alt="Логотип минимал">
+        </a>
+    </div>
+</nav>
+
+<!--Модальное окно-->
+
+<div class="modal fade text-warning" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Вход в личный кабинет</h5>
+                <button type="button" class="btn-close bg-primary" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                data-bs-target="#home-tab-pane" type="button" role="tab"
+                                aria-controls="home-tab-pane" aria-selected="true">Вход
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#profile-tab-pane" type="button" role="tab"
+                                aria-controls="profile-tab-pane" aria-selected="false">Регистрация
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
+                         aria-labelledby="home-tab" tabindex="0">
+                        <form action="/account">
+                            <div class="my-3">
+                                <label for="inputTelLog" class="form-label">Номер телефона</label>
+                                <input type="tel" class="form-control" id="inputTelLog" aria-describedby="emailHelp"
+                                       required>
+                            </div>
+                            <div class="my-3">
+                                <label for="inputPassLog" class="form-label">Пароль</label>
+                                <input type="password" class="form-control" id="inputPassLog" required>
+                            </div>
+                            <div class="my-3 form-check">
+                                <label class="form-check-label" for="saveDataLog">Запомнить данные</label>
+                                <input type="checkbox" class="form-check-input" id="saveDataLog">
+                            </div>
+
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                            <button type="submit" class="btn btn-warning">Войти в личный кабинет</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                         tabindex="0">
+                        <form action="/account">
+                            <div class="my-3">
+                                <label for="inputTelSign" class="form-label">Номер телефона</label>
+                                <input type="tel" class="form-control" id="inputTelSign" aria-describedby="emailHelp"
+                                       required>
+                            </div>
+                            <div class="my-3">
+                                <label for="inputPassSign1" class="form-label">Пароль</label>
+                                <input type="password" class="form-control" id="inputPassSign1" required>
+                            </div>
+                            <div class="my-3">
+                                <label for="inputPassSign2" class="form-label">Повторите пароль</label>
+                                <input type="password" class="form-control" id="inputPassSign2" required>
+                            </div>
+
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                            <button type="submit" class="btn btn-warning">Войти в личный кабинет</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container bg-dark text-light border border-5 border-opacity-25 border-primary" style="font-size: 1.25em">
+
+<!--    Карта и адреса-->
+
+    <div class="row mx-5 mt-5 pt-2 border border-1 border-primary rounded">
+        <div class="col-6">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A80989f2d1e83eb2216c0de9611d071d4615e88f035b52f834f94daa0086c572f&amp;source=constructor"
+                    height="512px" class="w-100"></iframe>
+        </div>
+        <div class="col-6">
+            <p class="fw-bold my-3">Наши адреса в Белгороде:</p>
+            <ol>
+                <li>Улица Губкина, 17</li>
+                <li>Проспект Богдана Хмельницкого, 73</li>
+                <li>Улица 5 Августа, 4</li>
+                <li>Улица Садовая, 114</li>
+                <li>Улица Победы, 12</li>
+                <li>Улица Мичурина, 100Б</li>
+            </ol>
+        </div>
+    </div>
+
+<!--    Телефоны, емэйлы, соцсети-->
+    <div class="row text-center">
+        <ul style="list-style-type: none">
+            <li class="fw-bold my-3">Наши телефоны:</li>
+            <li>Горячая линия:
+                <a href="tel:+71234567890" class="link-warning link-underline-primary">+7(987)654-32-10</a>
+            </li>
+            <li>Служба поддержки:
+                <a href="tel:+71234567890" class="link-warning link-underline-primary">+7(123)456-78-90</a>
+            </li>
+            <li class="fw-bold my-3">Наши e-mail:</li>
+            <li>
+                Для партнёров и бизнеса:
+                <a href="mailto:molniamobilepart@mm.ru" class="link-warning link-underline-primary">molniamobilepart@mm.ru
+                </a>
+            </li>
+            <li>
+                Для клиентов:
+                <a href="mailto:molniamobilepart@mm.ru" class="link-warning link-underline-primary">molniamobilepart@mm.ru
+                </a>
+            </li>
+            <li class="fw-bold my-3">Наши соцсети:</li>
+            <li class="my-2">
+                ВКонтакте: <a href="https://vk.com"> <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/VK_Compact_Logo_%282021-present%29.svg/2048px-VK_Compact_Logo_%282021-present%29.svg.png"
+                    alt="Вконтакте" style="height: 2em">
+            </a>
+            </li>
+            <li class="my-2">
+                Telegram: <a href="https://web.telegram.org/z/"> <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/512px-Telegram_logo.svg.png"
+                    alt="Telegram" style="height: 2em">
+            </a>
+            </li>
+            <li class="my-2">
+                Дзен: <a href="https://dzen.ru">
+                <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Yandex_Zen_logo_icon.svg/512px-Yandex_Zen_logo_icon.svg.png"
+                        alt="Дзен" style="height: 2em">
+            </a>
+            </li>
+        </ul>
+
+        <div class="row ">
+            <div class="col d-flex justify-content-center">
+            <form class="w-50  border border-1 border-primary p-5 mb-5 rounded">
+                <h5>Форма обратной связи для отзывов или обращений</h5>
+                <div class="form-group">
+                    <label for="name">Имя:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Введите ваше имя">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Введите ваш email">
+                </div>
+                <div class="form-group">
+                    <label for="theme">Тема обращения:</label>
+                    <input type="text" class="form-control" id="theme" placeholder="Введите тему обращения">
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение:</label>
+                    <textarea class="form-control" id="message" rows="5"
+                              placeholder="Введите ваше сообщение"></textarea>
+                </div>
+                <button type="submit" class="btn btn-warning mt-5" onclick="alert('Сообщение отправлено')">Отправить</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Подвал-->
+<footer class="bg-dark text-light">
+    <div class="container">
+        <div class="row text-center">
+            <ul style="list-style-type: none">
+                <li>
+                    Горячая линия:
+                    <a href="tel:+71234567890" class="link-warning link-underline-primary">+7(987)654-32-10</a>
+                </li>
+                <li>
+                    Служба поддержки:
+                    <a href="tel:+71234567890" class="link-warning link-underline-primary">+7(123)456-78-90</a>
+                </li>
+                <li>
+                    Для партнёров и бизнеса:
+                    <a href="mailto:molniamobilepart@mm.ru" class="link-warning link-underline-primary">molniamobilepart@mm.ru</a>
+                </li>
+                <li>
+                    Для клиентов:
+                    <a href="mailto:molniamobilepart@mm.ru" class="link-warning link-underline-primary">molniamobilepart@mm.ru</a>
+                </li>
+                <li class="my-3">
+                    <a href="https://vk.com" style="text-decoration: none"> <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/VK_Compact_Logo_%282021-present%29.svg/2048px-VK_Compact_Logo_%282021-present%29.svg.png"
+                            alt="Вконтакте" style="height: 2em">
+                    </a>
+                    <a href="https://web.telegram.org/z/" style="text-decoration: none">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/512px-Telegram_logo.svg.png"
+                             alt="Telegram" style="height: 2em">
+                    </a>
+                    <a href="https://dzen.ru" style="text-decoration: none">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Yandex_Zen_logo_icon.svg/512px-Yandex_Zen_logo_icon.svg.png"
+                             alt="Дзен" style="height: 2em">
+                    </a>
+                </li>
+                <li>
+                    <form class="d-flex justify-content-center">
+                        <input class="form-control w-25 mx-1 mb-3" type="email" placeholder="Новостная рассылка"
+                               aria-label="Email">
+                        <button class="btn btn-warning mb-3" type="submit"
+                                onclick="alert('Вы подписались на новостную рассылку! Проверьте почту')">Подписаться
+                        </button>
+                    </form>
+                </li>
+                <li>
+                    © 2023 ООО «Молния Мобайл». Все права защищены.
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

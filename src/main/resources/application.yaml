@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/molniamobile
+    password: 3gor
+    username: postgres
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  jpa:
+    show-sql: true
+
