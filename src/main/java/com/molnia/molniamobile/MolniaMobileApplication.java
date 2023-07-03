@@ -11,3 +11,5 @@ public class MolniaMobileApplication {
     }
 
 }
+
+//TODO смена темы, аккаунты, смена тарифа, пополнение баланса

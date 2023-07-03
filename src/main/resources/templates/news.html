@@ -31,7 +31,7 @@
                     <a class="nav-link" href="/tariffs">Тарифы</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/services">Услуги</a>
+                    <a class="nav-link" href="/offers">Услуги</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/news">Новости и блог</a>
@@ -140,8 +140,8 @@
         <div class="col-sm-6 mb-3" th:each="newsitem : ${news}">
             <div class="card border border-primary border-1 rounded">
                 <div class="card-body text-light bg-dark shadow-lg">
-                    <h5 class="card-title" th:text="${newsitem.getName()}"></h5>
-                    <span class="badge bg-primary text-light rounded-pill" th:text="${newsitem.getPublication_date()}"></span>
+                    <h3 class="card-title d-flex text-warning" th:text="${newsitem.getName()}"></h3>
+                    <span class="badge bg-primary text-light rounded-pill mb-2" th:text="${newsitem.getPublication_date()}"></span>
                     <p class="card-text" th:text="${newsitem.getDescription()}"></p>
                 </div>
             </div>

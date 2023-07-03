@@ -32,7 +32,7 @@
                     <a class="nav-link" href="/tariffs">Тарифы</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/services">Услуги</a>
+                    <a class="nav-link" href="/offers">Услуги</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/news">Новости и блог</a>
@@ -133,66 +133,30 @@
     </div>
 </div>
 
-
+<!--Основной контент-->
 
 <div class="container bg-dark text-light border border-5 border-opacity-25 border-primary">
     <div class="row my-1">
         <h2>Услуги</h2>
-        <div class="col-sm-4 mb-3">
+
+        <div class="col-sm-4 mb-3" th:each="offer : ${offers}">
             <div class="card border border-primary border-1 rounded">
                 <div class="card-body text-light bg-dark shadow-lg">
-                    <h5 class="card-title">Спам-фильтр <span
-                            class="badge bg-primary text-light rounded-pill">30 ₽/мес</span></h5>
+                    <h3 class="card-title d-flex text-warning" th:text="${offer.getName()}"> </h3>
+                        <span class="badge bg-primary text-light rounded-pill mb-3" th:text="${offer.getCost()}"></span>
                     <ul class="list-group mb-3">
                         <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light
-                        border border-1 border-primary py-3">
-                            Пусть вас никто не потревожит
+                        border border-1 border-primary py-3" th:text="${offer.getAddition()}">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light
+                        border border-1 border-primary py-3" th:text="${offer.getDescription()}">
                         </li>
                     </ul>
                     <a href="#" class="btn btn-warning">Подключить</a>
                 </div>
             </div>
         </div>
-        <div class="col-sm-4 mb-3">
-            <div class="card border border-primary border-1 rounded">
-                <div class="card-body text-light bg-dark shadow-lg">
-                    <h5 class="card-title">Пакет интернета 10 ГБ <span
-                            class="badge bg-primary text-light rounded-pill">100 ₽</span></h5>
-                    <ul class="list-group mb-3">
-                        <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light
-                        border border-1 border-primary py-3">
-                            Интернет
-                            <span class="badge bg-primary rounded-pill">10 ГБ</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light
-                        border border-1 border-primary py-3">
-                            Не хватает интернета до конца месяца? Не беда — приобретите всего 10 ГБ
-                        </li>
-                    </ul>
-                    <a href="#" class="btn btn-warning">Подключить</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 mb-3">
-            <div class="card border border-primary border-1 rounded">
-                <div class="card-body text-light bg-dark shadow-lg">
-                    <h5 class="card-title">Пробные 10 дней с 5G <span
-                            class="badge bg-primary text-light rounded-pill">Бесплатно</span></h5>
-                    <ul class="list-group mb-3">
-                        <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light
-                        border border-1 border-primary py-3">
-                            Интернет
-                            <span class="badge bg-primary rounded-pill">5G</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light
-                        border border-1 border-primary py-3">
-                            Ощутите по-настоящему новую скорость
-                        </li>
-                    </ul>
-                    <a href="#" class="btn btn-warning">Подключить</a>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 

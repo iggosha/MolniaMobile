@@ -1,7 +1,9 @@
 package com.molnia.molniamobile.controllers;
 
 import com.molnia.molniamobile.model.News;
+import com.molnia.molniamobile.model.Offer;
 import com.molnia.molniamobile.model.Tariff;
+import com.molnia.molniamobile.service.OfferService;
 import com.molnia.molniamobile.service.TariffService;
 import com.molnia.molniamobile.service.NewsService;
 import org.springframework.stereotype.Controller;
@@ -16,10 +18,12 @@ public class MolniaController {
 
     private TariffService tariffService;
     private NewsService newsService;
+    private OfferService offerService;
 
-    public MolniaController(TariffService tariffService, NewsService newsService) {
+    public MolniaController(TariffService tariffService, NewsService newsService, OfferService offerService) {
         this.tariffService = tariffService;
         this.newsService = newsService;
+        this.offerService = offerService;
     }
 
     @GetMapping
@@ -34,9 +38,11 @@ public class MolniaController {
         return "tariffs";
     }
 
-    @GetMapping("/services")
-    public String getServicesPage() {
-        return "services";
+    @GetMapping("/offers")
+    public String getServicesPage(Model model) {
+        List<Offer> offers = offerService.findAll();
+        model.addAttribute("offers", offers);
+        return "offers";
     }
 
     @GetMapping("/news")

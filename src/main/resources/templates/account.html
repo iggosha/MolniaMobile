@@ -31,7 +31,7 @@
                     <a class="nav-link" href="/tariffs">Тарифы</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/services">Услуги</a>
+                    <a class="nav-link" href="/offers">Услуги</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/news">Новости и блог</a>
@@ -132,7 +132,6 @@
     </div>
 </div>
 
-
 <div class="container bg-dark text-light border border-5 border-opacity-25 border-primary" style="padding-bottom: 15rem">
     <div class="row mt-3">
         <div class="col-sm-2 p-5">
@@ -143,7 +142,7 @@
                       d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
             </svg>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 border border-primary border-1 rounded mx-3">
             <ul style="list-style-type: none">
                 <li class="fw-bold mt-3">ФИО клиента:</li>
                 <li>Иванов Иван Иванович</li>
@@ -166,16 +165,16 @@
                 </li>
             </ul>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 border border-primary border-1 rounded mx-3">
             <ul style="list-style-type: none">
                 <li class="fw-bold mt-3">Текущий тариф:</li>
                 <li>Молния</li>
                 <li class="fw-bold mt-3">Подключен с:</li>
-                <li>19/06/2023</li>
+                <li><span class="badge bg-primary text-light rounded-pill mb-2">19/06/2023</span></li>
                 <li class="fw-bold mt-3">Текущий баланс:</li>
                 <li>555 ₽</li>
                 <li>
-                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#balanceModal">
+                    <button type="button" class="btn btn-warning mt-3" data-bs-toggle="modal" data-bs-target="#balanceModal">
                         Пополнить баланс
                     </button>
                 </li>
@@ -184,7 +183,7 @@
     </div>
 </div>
 
-
+<!--Модальное окно для пополнения-->
 <div class="modal fade text-warning" id="balanceModal" tabindex="-1" aria-labelledby="balanceModalLabel"
      aria-hidden="true">
     <div class="modal-dialog ">
