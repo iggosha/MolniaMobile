@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Молния Мобайл: Админ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/MM-style.css">
+</head>
+
+<body class="bg-warning">
+<!--Навигация-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="/images/MM-long-transpar.png" alt="Логотип минимал">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto mb-">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tariffs">Тарифы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/offers">Услуги</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/news">Новости и блог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contacts">Контакты и
+                        поддержка
+                    </a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#authModal">
+                    Личный кабинет
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/main">
+            <img src="/images/MM-long-transpar.png" alt="Логотип минимал">
+        </a>
+    </div>
+</nav>
+
+<!--Модальное окно-->
+
+<div class="modal fade text-warning" id="authModal" tabindex="-1" aria-labelledby="authModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="authModalLabel">Вход в личный кабинет</h5>
+                <button type="button" class="btn-close bg-primary" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="authTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="log-in-tab" data-bs-toggle="tab"
+                                data-bs-target="#log-in-tab-pane" type="button" role="tab"
+                                aria-controls="log-in-tab-pane" aria-selected="true">Вход
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="sign-in-tab" data-bs-toggle="tab"
+                                data-bs-target="#sign-in-tab-pane" type="button" role="tab"
+                                aria-controls="sign-in-tab-pane" aria-selected="false">Регистрация
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="LogInTabContent">
+                    <div class="tab-pane fade show active" id="log-in-tab-pane" role="tabpanel"
+                         aria-labelledby="log-in-tab" tabindex="0">
+                        <form action="/account">
+                            <div class="my-3">
+                                <label for="inputTelLog" class="form-label">Номер телефона</label>
+                                <input type="tel" class="form-control" id="inputTelLog" aria-describedby="emailHelp"
+                                       required>
+                            </div>
+                            <div class="my-3">
+                                <label for="inputPassLog" class="form-label">Пароль</label>
+                                <input type="password" class="form-control" id="inputPassLog" required>
+                            </div>
+                            <div class="my-3 form-check">
+                                <label class="form-check-label" for="saveDataLog">Запомнить данные</label>
+                                <input type="checkbox" class="form-check-input" id="saveDataLog">
+                            </div>
+
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                            <button type="submit" class="btn btn-warning">Войти в личный кабинет</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="sign-in-tab-pane" role="tabpanel" aria-labelledby="sign-in-tab"
+                         tabindex="0">
+                        <form action="/account">
+                            <div class="my-3">
+                                <label for="inputTelSign" class="form-label">Номер телефона</label>
+                                <input type="tel" class="form-control" id="inputTelSign" aria-describedby="emailHelp"
+                                       required>
+                            </div>
+                            <div class="my-3">
+                                <label for="inputPassSign1" class="form-label">Пароль</label>
+                                <input type="password" class="form-control" id="inputPassSign1" required>
+                            </div>
+                            <div class="my-3">
+                                <label for="inputPassSign2" class="form-label">Повторите пароль</label>
+                                <input type="password" class="form-control" id="inputPassSign2" required>
+                            </div>
+
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                            <button type="submit" class="btn btn-warning">Войти в личный кабинет</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Основной контент-->
+<div class="container bg-dark text-light border border-5 border-opacity-25 border-primary py-5">
+    <ul class="nav nav-tabs" id="addTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tariff-tab" data-bs-toggle="tab"
+                    data-bs-target="#tariff-tab-pane" type="button" role="tab"
+                    aria-controls="tariff-tab-pane" aria-selected="true">Добавление тарифа
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="offer-tab" data-bs-toggle="tab"
+                    data-bs-target="#offer-tab-pane" type="button" role="tab"
+                    aria-controls="offer-tab-pane" aria-selected="false">Добавление услуги
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="news-tab" data-bs-toggle="tab"
+                    data-bs-target="#news-tab-pane" type="button" role="tab"
+                    aria-controls="offer-tab-pane" aria-selected="false">Добавление новости
+            </button>
+        </li>
+    </ul>
+    <div class="tab-content text-warning border border-1 border-light px-5 py-3 rounded" id="addTabContent">
+        <div class="tab-pane fade show active" id="tariff-tab-pane" role="tabpanel"
+             aria-labelledby="tariff-tab-tab" tabindex="0">
+            <form th:action="@{/admin/addTariff}" th:object="${tariff}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="tariffName">Название:</label>
+                    <input type="text" class="form-control" id="tariffName" th:field="*{name}" required>
+                </div>
+                <div class="form-group">
+                    <label for="tariffCost">Цена:</label>
+                    <input type="text" class="form-control" id="tariffCost" th:field="*{cost}">
+                </div>
+                <div class="form-group">
+                    <label for="tariffInternet">Интернет:</label>
+                    <input type="text" class="form-control" id="tariffInternet" th:field="*{internet}">
+                </div>
+                <div class="form-group">
+                    <label for="tariffCalls">Звонки:</label>
+                    <input type="text" class="form-control" id="tariffCalls" th:field="*{calls}" required>
+                </div>
+                <div class="form-group">
+                    <label for="tariffSms">СМС:</label>
+                    <input type="text" class="form-control" id="tariffSms" th:field="*{sms}" required>
+                </div>
+                <div class="form-group">
+                    <label for="tariffDescription">Описание:</label>
+                    <textarea class="form-control" id="tariffDescription" rows="3" th:field="*{description}"
+                              required></textarea>
+                </div>
+                <button type="submit" class="btn btn-warning mt-3">Добавить</button>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="offer-tab-pane" role="tabpanel" aria-labelledby="offer-tab"
+             tabindex="0">
+            <form th:action="@{/admin/addOffer}" th:object="${offer}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="offerName">Название:</label>
+                    <input type="text" class="form-control" id="offerName" th:field="*{name}" required>
+                </div>
+                <div class="form-group">
+                    <label for="offerCost">Цена:</label>
+                    <input type="text" class="form-control" id="offerCost" th:field="*{cost}">
+                </div>
+                <div class="form-group">
+                    <label for="offerAddition">Назначение:</label>
+                    <input type="text" class="form-control" id="offerAddition" th:field="*{addition}">
+                </div>
+                <div class="form-group">
+                    <label for="offerDescription">Описание:</label>
+                    <textarea class="form-control" id="offerDescription" rows="3" th:field="*{description}"
+                              required></textarea>
+                </div>
+                <button type="submit" class="btn btn-warning mt-3">Добавить</button>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="news-tab-pane" role="tabpanel" aria-labelledby="news-tab"
+             tabindex="0">
+            <form th:action="@{/admin/addNews}" th:object="${news}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="newsName">Название:</label>
+                    <input type="text" class="form-control" id="newsName" th:field="*{name}" required>
+                </div>
+                <div class="form-group">
+                    <label for="newsDate">Дата:</label>
+                    <input type="text" class="form-control" id="newsDate" th:field="*{publication_date}">
+                </div>
+                <div class="form-group">
+                    <label for="newsDescription">Описание:</label>
+                    <textarea class="form-control" id="newsDescription" rows="3" th:field="*{description}"
+                              required></textarea>
+                </div>
+                <button type="submit" class="btn btn-warning mt-3">Добавить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

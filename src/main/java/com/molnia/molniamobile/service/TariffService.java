@@ -15,11 +15,15 @@ public class TariffService {
         this.tariffRepository = tariffRepository;
     }
 
-    public List<Tariff> findAll(){
+    public List<Tariff> findAll() {
         return tariffRepository.findAll();
     }
 
-    public  Tariff findById(int id){
+    public Tariff findById(int id) {
         return tariffRepository.findById(id).orElse(null);
+    }
+
+    public void addTariff(Tariff tariff) {
+        tariffRepository.save(tariff);
     }
 }

@@ -22,4 +22,8 @@ public class OfferService {
     public Offer findById(int id) {
         return offerRepository.findById(id).orElse(null);
     }
+
+    public void addOffer(Offer offer) {
+        offerRepository.save(offer);
+    }
 }

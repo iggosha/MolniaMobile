@@ -137,7 +137,7 @@
     <div class="row my-1">
         <h2>Тарифы</h2>
         <div class="col-sm-4 mb-3" th:each="tariff : ${tariffs}">
-            <div class="card border border-primary border-1 rounded">
+            <div class="card border border-primary border-1 rounded h-100">
                 <div class="card-body text-light bg-dark shadow-lg">
                     <h3 class="card-title d-inline text-warning">Тариф&nbsp;</h3>
                     <h3 class="card-title d-inline text-warning" th:text="${tariff.getName()}"></h3>
@@ -162,6 +162,8 @@
                         border border-1 border-primary py-3"  th:text="${tariff.getDescription()}">
                         </li>
                     </ul>
+                    <a th:href="@{/tariffs/{id}(id=${tariff.getId()})}"
+                       class="btn btn-warning">Подробнее</a>
                 </div>
             </div>
         </div>

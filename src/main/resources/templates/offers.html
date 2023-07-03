@@ -138,9 +138,8 @@
 <div class="container bg-dark text-light border border-5 border-opacity-25 border-primary">
     <div class="row my-1">
         <h2>Услуги</h2>
-
         <div class="col-sm-4 mb-3" th:each="offer : ${offers}">
-            <div class="card border border-primary border-1 rounded">
+            <div class="card border border-primary border-1 rounded h-100">
                 <div class="card-body text-light bg-dark shadow-lg">
                     <h3 class="card-title d-flex text-warning" th:text="${offer.getName()}"> </h3>
                         <span class="badge bg-primary text-light rounded-pill mb-3" th:text="${offer.getCost()}"></span>
@@ -152,7 +151,8 @@
                         border border-1 border-primary py-3" th:text="${offer.getDescription()}">
                         </li>
                     </ul>
-                    <a href="#" class="btn btn-warning">Подключить</a>
+                    <a th:href="@{/offers/{id}(id=${offer.getId()})}"
+                       class="btn btn-warning">Подробнее</a>
                 </div>
             </div>
         </div>
