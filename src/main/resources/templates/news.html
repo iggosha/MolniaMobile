@@ -136,13 +136,16 @@
 <div class="container bg-dark text-light border border-5 border-opacity-25 border-primary">
     <div class="row my-1">
         <h2>Новости</h2>
-<!--        Карточки новостей-->
-        <div class="col-sm-6 mb-3 h-100" th:each="newsitem : ${news}">
-            <div class="card border border-primary border-1 rounded h-100">
-                <div class="card-body text-light bg-dark shadow-lg">
+        <!--        Карточки новостей-->
+        <div class="col-sm-6 mb-3" th:each="newsitem : ${news}">
+            <div class="card border border-primary border-1 rounded">
+                <div class="card-body text-light bg-dark shadow-lg" >
                     <h3 class="card-title d-flex text-warning " th:text="${newsitem.getName()}"></h3>
-                    <span class="badge bg-primary text-light rounded-pill mb-2" th:text="${newsitem.getPublication_date()}"></span>
-                    <p class="card-text" th:text="${newsitem.getDescription()}"></p>
+                    <span class="badge bg-primary text-light rounded-pill mb-2"
+                          th:text="${newsitem.getPublication_date()}"></span>
+                    <p class="card-text" style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden"
+                       th:text="${newsitem.getDescription()}"></p>
+
                     <a th:href="@{/news/{id}(id=${newsitem.getId()})}"
                        class="btn btn-warning">Подробнее</a>
                 </div>
@@ -151,7 +154,7 @@
     </div>
 </div>
 <div class="container bg-dark text-light border border-5 border-opacity-25 border-primary pb-3">
-<!--    Аккордеон для ЧаВо-->
+    <!--    Аккордеон для ЧаВо-->
     <div class="row my-1">
         <div class="col text-light">
             <h2>Частые вопросы</h2>
@@ -246,11 +249,11 @@
                     </a>
                 </li>
                 <li>
-                    <form class="d-flex justify-content-center">
-                        <input class="form-control w-25 mx-1 mb-3" type="email" placeholder="Новостная рассылка"
-                               aria-label="Email">
-                        <button class="btn btn-warning mb-3" type="submit"
-                                onclick="alert('Вы подписались на новостную рассылку! Проверьте почту')">Подписаться
+                    <form class="d-flex justify-content-center" onsubmit="alert('Вы подписались на рассылку! Проверьте почту')">
+                        <input class="form-control w-25 mx-1 mb-3" type="email" id="emailIn"
+                               placeholder="Новостная рассылка"
+                               aria-label="Email" required>
+                        <button class="btn btn-warning mb-3" type="submit">Подписаться
                         </button>
                     </form>
                 </li>

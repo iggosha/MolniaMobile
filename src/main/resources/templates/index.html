@@ -93,7 +93,7 @@
                         <form action="/account">
                             <div class="my-3">
                                 <label for="inputTelLog" class="form-label">Номер телефона</label>
-                                <input type="tel" class="form-control" id="inputTelLog" aria-describedby="emailHelp"
+                                <input type="tel" class="form-control" id="inputTelLog" aria-describedby="telLogIn"
                                        required>
                             </div>
                             <div class="my-3">
@@ -104,7 +104,6 @@
                                 <label class="form-check-label" for="saveDataLog">Запомнить данные</label>
                                 <input type="checkbox" class="form-check-input" id="saveDataLog">
                             </div>
-
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
                             <button type="submit" class="btn btn-warning">Войти в личный кабинет</button>
                         </form>
@@ -284,11 +283,11 @@
                     </a>
                 </li>
                 <li>
-                    <form class="d-flex justify-content-center">
-                        <input class="form-control w-25 mx-1 mb-3" type="email" placeholder="Новостная рассылка"
-                               aria-label="Email">
-                        <button class="btn btn-warning mb-3" type="submit"
-                                onclick="alert('Вы подписались на новостную рассылку! Проверьте почту')">Подписаться
+                    <form class="d-flex justify-content-center" onsubmit="alert('Вы подписались на рассылку! Проверьте почту')">
+                        <input class="form-control w-25 mx-1 mb-3" type="email" id="emailIn"
+                               placeholder="Новостная рассылка"
+                               aria-label="Email" required>
+                        <button class="btn btn-warning mb-3" type="submit">Подписаться
                         </button>
                     </form>
                 </li>

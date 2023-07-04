@@ -132,13 +132,117 @@
     </div>
 </div>
 
-<p th:text="${tariff.getId()}"></p>
-<p th:text="${tariff.getName()}"></p>
-<p th:text="${tariff.getCost()}"></p>
-<p th:text="${tariff.getInternet()}"></p>
-<p th:text="${tariff.getCalls()}"></p>
-<p th:text="${tariff.getSms()}"></p>
-<p th:text="${tariff.getDescription()}"></p>
+<div class="container bg-dark text-light border border-5 border-opacity-25 border-primary pb-3">
+    <div class="row">
+        <div class="col">
+            <table class="table border border-1 border-primary mt-5">
+                <thead>
+                <tr>
+                    <th scope="col" class="bg-dark text-light">#</th>
+                    <th scope="col" class="bg-dark text-light">Параметр</th>
+                    <th scope="col" class="bg-dark text-light">Значение</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row" class="bg-dark text-light">1</th>
+                    <td class="bg-dark text-light">Кодовый номер тарифа</td>
+                    <td class="bg-dark text-light" th:text="${tariff.getId()}"></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="bg-dark text-light">2</th>
+                    <td class="bg-dark text-light">Название тарифа</td>
+                    <td class="bg-dark text-light" th:text="${tariff.getName()}"></td>
+                </tr>
+                <tr>
+                    <th class="bg-dark text-light" scope="row">3</th>
+                    <td class="bg-dark text-light">Цена тарифа</td>
+                    <td class="bg-dark text-light" th:text="${tariff.getCost()}"></td>
+                </tr>
+                <tr>
+                    <th class="bg-dark text-light" scope="row">4</th>
+                    <td class="bg-dark text-light">Количество интернета</td>
+                    <td class="bg-dark text-light" th:text="${tariff.getInternet()}"></td>
+                </tr>
+                <tr>
+                    <th class="bg-dark text-light" scope="row">5</th>
+                    <td class="bg-dark text-light">Количество минут звонков</td>
+                    <td class="bg-dark text-light" th:text="${tariff.getCalls()}"></td>
+                </tr>
+                <tr>
+                    <th class="bg-dark text-light" scope="row">6</th>
+                    <td class="bg-dark text-light">Количество СМС</td>
+                    <td class="bg-dark text-light" th:text="${tariff.getSms()}"></td>
+                </tr>
+                <tr>
+                    <th class="bg-dark text-light" scope="row">7</th>
+                    <td class="bg-dark text-light">Описание тарифа</td>
+                    <td class="bg-dark text-light" th:text="${tariff.getDescription()}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <a href="/tariffs" class="btn btn-warning">Вернуться к тарифам</a>
+        </div>
+    </div>
+    <!--    Аккордеон для ЧаВо-->
+    <div class="row my-1">
+        <div class="col text-light">
+            <h2>Частые вопросы</h2>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item bg-dark text-light border-primary">
+                    <h2 class="accordion-header ">
+                        <button class="accordion-button bg-warning text-dark" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Вопрос: Что происходит, если я превышу лимиты на минуты, сообщения или интернет-трафик?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Если вы превысите лимиты на минуты, сообщения или интернет-трафик включенные в ваш тариф, вам
+                            могут начислить дополнительные расходы в соответствии с тарифами оператора. Лучше всего
+                            проверить условия вашего тарифного плана, чтобы избежать дополнительных затрат.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-dark text-light border-primary">
+                    <h2 class="accordion-header ">
+                        <button class="accordion-button bg-warning text-dark" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            Вопрос: Как я могу контролировать свои расходы на связь и узнать их детализацию
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Чтобы контролировать ваши расходы на связь и узнать детализацию, вы можете использовать личный
+                            кабинет на сайте оператора или мобильное приложение, где вы сможете видеть информацию о звонках,
+                            сообщениях и использовании интернета с разбивкой по датам и типу услуги. Также, вы можете
+                            запросить детализацию своих расходов позвонив в контактный центр оператора и запросить
+                            детализацию через оператора.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-dark text-light border-primary">
+                    <h2 class="accordion-header ">
+                        <button class="accordion-button bg-warning text-dark" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                            Вопрос: Есть ли какие-то ограничения по скорости интернета в выбранном тарифе?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            В некоторых тарифных планах есть ограничения по скорости интернета после превышения
+                            определенного объема трафика. Это может снизить скорость загрузки и потребления контента. Лучше
+                            всего проверить условия выбранного тарифа или обратиться в службу поддержки оператора для
+                            получения более точной информации.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 <!--Подвал-->
@@ -177,11 +281,11 @@
                     </a>
                 </li>
                 <li>
-                    <form class="d-flex justify-content-center">
-                        <input class="form-control w-25 mx-1 mb-3" type="email" placeholder="Новостная рассылка"
-                               aria-label="Email">
-                        <button class="btn btn-warning mb-3" type="submit"
-                                onclick="alert('Вы подписались на новостную рассылку! Проверьте почту')">Подписаться
+                    <form class="d-flex justify-content-center" onsubmit="alert('Вы подписались на рассылку! Проверьте почту')">
+                        <input class="form-control w-25 mx-1 mb-3" type="email" id="emailIn"
+                               placeholder="Новостная рассылка"
+                               aria-label="Email" required>
+                        <button class="btn btn-warning mb-3" type="submit">Подписаться
                         </button>
                     </form>
                 </li>

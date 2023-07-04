@@ -132,12 +132,28 @@
     </div>
 </div>
 
-<p th:text="${news.getId()}"></p>
-<p th:text="${news.getName()}"></p>
-<p th:text="${news.getPublication_date()}"></p>
-<p th:text="${news.getDescription()}"></p>
-
-
+<div class="container bg-dark text-light border border-5 border-opacity-25 border-primary pb-3" style="min-height:75vh">
+    <div class="row">
+        <div class="col">
+            <table class="table border border-1 border-primary m-5 p-5 w-50 ">
+                <tbody>
+                <tr>
+                    <td class="bg-dark text-warning">
+                        <h2 class="bg-dark text-warning" th:text="${news.getName()}"> </h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bg-dark text-light" th:text="${'Дата публикации: '+ news.getPublication_date()}"></td>
+                </tr>
+                <tr>
+                    <td class="bg-dark text-light" th:text="${news.getDescription()}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <a href="/news" class="btn btn-warning mx-5">Вернуться к новостям</a>
+        </div>
+    </div>
+</div>
 <!--Подвал-->
 <footer class="bg-dark text-light">
     <div class="container">
@@ -174,11 +190,11 @@
                     </a>
                 </li>
                 <li>
-                    <form class="d-flex justify-content-center">
-                        <input class="form-control w-25 mx-1 mb-3" type="email" placeholder="Новостная рассылка"
-                               aria-label="Email">
-                        <button class="btn btn-warning mb-3" type="submit"
-                                onclick="alert('Вы подписались на новостную рассылку! Проверьте почту')">Подписаться
+                    <form class="d-flex justify-content-center" onsubmit="alert('Вы подписались на рассылку! Проверьте почту')">
+                        <input class="form-control w-25 mx-1 mb-3" type="email" id="emailIn"
+                               placeholder="Новостная рассылка"
+                               aria-label="Email" required>
+                        <button class="btn btn-warning mb-3" type="submit">Подписаться
                         </button>
                     </form>
                 </li>

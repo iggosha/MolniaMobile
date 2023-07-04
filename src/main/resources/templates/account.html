@@ -132,7 +132,8 @@
     </div>
 </div>
 
-<div class="container bg-dark text-light border border-5 border-opacity-25 border-primary" style="padding-bottom: 15rem">
+<div class="container bg-dark text-light border border-5 border-opacity-25 border-primary"
+     style="padding-bottom: 15rem">
     <div class="row mt-3">
         <div class="col-sm-2 p-5">
             <svg xmlns="http://www.w3.org/2000/svg" fill="#FFC107"
@@ -148,11 +149,10 @@
                 <li>Иванов Иван Иванович</li>
                 <li class="fw-bold mt-3">Номер телефона:</li>
                 <li>+7(123)456-78-90</li>
-
                 <li class="fw-bold mt-3">Пароль:</li>
                 <li>
                     <label for="passwordField"></label>
-                    <input type="password" class="form-control" id="passwordField" value="123">
+                    <input type="password" class="form-control" id="passwordField" value="qwerty123">
                 </li>
                 <li>
                     <button class="btn btn-warning mt-3" onclick="let passwordField = document.getElementById('passwordField');
@@ -174,7 +174,8 @@
                 <li class="fw-bold mt-3">Текущий баланс:</li>
                 <li>555 ₽</li>
                 <li>
-                    <button type="button" class="btn btn-warning mt-3" data-bs-toggle="modal" data-bs-target="#balanceModal">
+                    <button type="button" class="btn btn-warning mt-3" data-bs-toggle="modal"
+                            data-bs-target="#balanceModal">
                         Пополнить баланс
                     </button>
                 </li>
@@ -194,7 +195,6 @@
                         aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <%--                    Вход--%>
                 <form action="${pageContext.request.contextPath}/account">
                     <div class="my-3">
                         <label for="inputTel" class="form-label">Номер телефона</label>
@@ -255,11 +255,11 @@
                     </a>
                 </li>
                 <li>
-                    <form class="d-flex justify-content-center">
-                        <input class="form-control w-25 mx-1 mb-3" type="email" placeholder="Новостная рассылка"
-                               aria-label="Email">
-                        <button class="btn btn-warning mb-3" type="submit"
-                                onclick="alert('Вы подписались на новостную рассылку! Проверьте почту')">Подписаться
+                    <form class="d-flex justify-content-center" onsubmit="alert('Вы подписались на рассылку! Проверьте почту')">
+                        <input class="form-control w-25 mx-1 mb-3" type="email" id="emailIn"
+                               placeholder="Новостная рассылка"
+                               aria-label="Email" required>
+                        <button class="btn btn-warning mb-3" type="submit">Подписаться
                         </button>
                     </form>
                 </li>
