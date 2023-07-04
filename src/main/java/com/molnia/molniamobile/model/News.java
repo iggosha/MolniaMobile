@@ -22,7 +22,7 @@ public class News {
 
     @Column(name = "publication_date")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/mm/yyyy")
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date publication_date;
 
     @Column(name = "description")
