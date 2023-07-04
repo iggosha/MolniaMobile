@@ -195,7 +195,7 @@
                         aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="${pageContext.request.contextPath}/account">
+                <form action="/account">
                     <div class="my-3">
                         <label for="inputTel" class="form-label">Номер телефона</label>
                         <input type="tel" class="form-control" id="inputTel" aria-describedby="emailHelp"
@@ -212,7 +212,7 @@
                             <input type="text" class="form-control w-25 mx-1" id="inputCVV" required></div>
                     </div>
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
-                    <button type="submit" class="btn btn-warning">Пополнить</button>
+                    <button type="submit" class="btn btn-warning" onclick="alert('Баланс пополнен')">Пополнить</button>
                 </form>
             </div>
         </div>
@@ -255,7 +255,8 @@
                     </a>
                 </li>
                 <li>
-                    <form class="d-flex justify-content-center" onsubmit="alert('Вы подписались на рассылку! Проверьте почту')">
+                    <form class="d-flex justify-content-center"
+                          onsubmit="alert('Вы подписались на рассылку! Проверьте почту')">
                         <input class="form-control w-25 mx-1 mb-3" type="email" id="emailIn"
                                placeholder="Новостная рассылка"
                                aria-label="Email" required>
